@@ -24,4 +24,9 @@ describe('ボウリングのスコア計算',() => {
         var result = this.bowling.computeScore('5/34----------------');
         expect(result).toBe(20);
     });
+
+    it('3回連続ストライク（ターキー）',() => {
+        var result = this.bowling.computeScore('XXX-------');
+        expect(result).toBe(60);
+    });
 });
