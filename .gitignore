@@ -1,0 +1,12 @@
+bower_components
+bin
+obj
+
+CodingDojo/test/*.js
+CodingDojo/test/*.map
+
+CodingDojo/src/*.js
+CodingDojo/src/*.map
+
+*.suo
+*.csproj.user
