@@ -15,8 +15,13 @@ describe('ボウリングのスコア計算',() => {
         expect(result).toBe(20);
     });
 
-    it('X 34の場合',() => {
+    it('X 34の場合（ストライク）',() => {
         var result = this.bowling.computeScore('X34----------------');
         expect(result).toBe(24);
+    });
+
+    it('5/ 34の場合（スペア）',() => {
+        var result = this.bowling.computeScore('5/34----------------');
+        expect(result).toBe(20);
     });
 });

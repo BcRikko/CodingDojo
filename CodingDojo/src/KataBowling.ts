@@ -12,6 +12,10 @@
                 // strike
                 score += 10 + (+rolls[i + 1]) + (+rolls[i + 2]);
 
+            } else if (roll === '/') {
+                // spare
+                score += (10 - (+rolls[i - 1])) + (+rolls[i + 1]);
+
             } else {
                 // normal
                 score += +roll;
