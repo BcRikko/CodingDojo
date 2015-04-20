@@ -32,7 +32,6 @@
     <Content Include="bower_components\jasmine\lib\jasmine-core\json2.js" />
     <Content Include="bower_components\jasmine\lib\jasmine-core\node_boot.js" />
     <Content Include="bower_components\jasmine\requirements.txt" />
-    <Content Include="index.html" />
     <Content Include="test\SpecRunner.html" />
   </ItemGroup>
   <ItemGroup>

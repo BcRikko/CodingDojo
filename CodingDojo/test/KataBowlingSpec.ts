@@ -14,4 +14,9 @@ describe('ボウリングのスコア計算',() => {
         var result = this.bowling.computeScore('11111111111111111111');
         expect(result).toBe(20);
     });
+
+    it('X 34の場合',() => {
+        var result = this.bowling.computeScore('X34----------------');
+        expect(result).toBe(24);
+    });
 });
