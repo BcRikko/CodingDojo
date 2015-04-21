@@ -14,4 +14,10 @@ describe('KataDectionaryReplacer',() => {
         var result = this.replacer.replace('$temp$', { 'temp': 'temporary' });
         expect(result).toBe('temporary');
     });
+
+    it('置換対象が2つの場合',() => {
+        var dict = { 'temp': 'temporary', 'name': 'John Doe' };
+        var result = this.replacer.replace('$temp$ here comes the name $name$', dict);
+        expect(result).toBe('temporary here comes the name John Doe');
+    });
 });

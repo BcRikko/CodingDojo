@@ -1,6 +1,6 @@
 ﻿class DictionaryReplacer {
     replace(before: string, dict: {}): string {
-        var targets = before.match(/\$.*\$/g);
+        var targets = before.match(/\$[^\$]*\$/g);
 
         if (!targets) { return ''; }
 
