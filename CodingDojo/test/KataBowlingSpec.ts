@@ -34,4 +34,9 @@ describe('ボウリングのスコア計算',() => {
         var result = this.bowling.computeScore('5/5/5/--------------');
         expect(result).toBe(40);
     });
+
+    it('パーフェクトゲームの場合',() => {
+        var result = this.bowling.computeScore('XXXXXXXXXXXX');
+        expect(result).toBe(300);
+    });
 });

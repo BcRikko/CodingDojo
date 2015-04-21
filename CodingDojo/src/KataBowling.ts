@@ -9,12 +9,16 @@
         var rollList = this.convertScoreArray(rolls);
 
         rollList.forEach((roll, i) => {
-            if (rolls[i] === 'X') {
-                // Strike
-                score += roll + rollList[i + 1] + rollList[i + 2];
-            } else if (rolls[i] === '/') {
-                // spare
-                score += roll + rollList[i + 1];
+            if (i < 9) {
+                if (rolls[i] === 'X') {
+                    // Strike
+                    score += roll + rollList[i + 1] + rollList[i + 2];
+                } else if (rolls[i] === '/') {
+                    // spare
+                    score += roll + rollList[i + 1];
+                } else {
+                    score += roll;
+                }
             } else {
                 score += roll;
             }
