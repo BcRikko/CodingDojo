@@ -6,18 +6,27 @@
      */
     computeScore(rolls: string): number {
         var score = 0;
+        var frameCount = 0;
+        var isFirstThrow = true;
         var rollList = this.convertScoreArray(rolls);
 
         rollList.forEach((roll, i) => {
-            if (i < 9) {
+            if (frameCount < 9) {
                 if (rolls[i] === 'X') {
                     // Strike
                     score += roll + rollList[i + 1] + rollList[i + 2];
+                    frameCount++;
                 } else if (rolls[i] === '/') {
                     // spare
                     score += roll + rollList[i + 1];
+                    frameCount++;
+                    isFirstThrow = true;
                 } else {
                     score += roll;
+                    if (!isFirstThrow) {
+                        frameCount++;
+                        isFirstThrow = true;
+                    }
                 }
             } else {
                 score += roll;
