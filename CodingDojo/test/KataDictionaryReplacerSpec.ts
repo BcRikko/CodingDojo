@@ -20,4 +20,10 @@ describe('KataDectionaryReplacer',() => {
         var result = this.replacer.replace('$temp$ here comes the name $name$', dict);
         expect(result).toBe('temporary here comes the name John Doe');
     });
+
+    it('置換対象に対応する連想配列がない場合',() => {
+        var dict = { 'temp': 'temporary', 'name': 'John Doe' };
+        var result = this.replacer.replace('$temp$ here comes the name $firstname$', dict);
+        expect(result).toBe('temporary here comes the name $firstname$');
+    });
 });

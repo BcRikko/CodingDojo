@@ -8,7 +8,9 @@
         targets.forEach((target) => {
             var key = target.replace(/\$/g, '');
 
-            after = after.replace(target, dict[key]);
+            if (dict[key]) {
+                after = after.replace(target, dict[key]);
+            }
         });
 
         return after;
