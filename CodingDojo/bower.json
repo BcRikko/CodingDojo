@@ -1,9 +1,6 @@
 {
   "name": "CodingDojo",
   "version": "0.0.0",
-  "authors": [
-    "bc_rikko <s.shin1106@gmail.com>"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
