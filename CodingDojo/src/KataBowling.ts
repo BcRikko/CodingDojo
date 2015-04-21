@@ -1,4 +1,27 @@
 ﻿class Bowling {
+    private isFirstRoll: boolean;
+    private frameCount: number;
+
+    private MARK = {
+        STRIKE: 'X',
+        SPARE: '/',
+        GUTTER: '-'
+    }
+
+    constructor() {
+        this.isFirstRoll = true;
+        this.frameCount = 0;    
+    }
+
+    /**
+     * 次のフレームへ
+     */
+    nextFrame(): void {
+        this.isFirstRoll = true;
+        this.frameCount++;
+    }
+
+
     /**
      * ボウリングのスコアを計算する
      * @param rolls ボウリングのスコア
@@ -6,26 +29,25 @@
      */
     computeScore(rolls: string): number {
         var score = 0;
-        var frameCount = 0;
-        var isFirstThrow = true;
         var rollList = this.convertScoreArray(rolls);
 
         rollList.forEach((roll, i) => {
-            if (frameCount < 9) {
-                if (rolls[i] === 'X') {
-                    // Strike
+            if (this.frameCount < 9) {
+                if (rolls[i] === this.MARK.STRIKE) {
                     score += roll + rollList[i + 1] + rollList[i + 2];
-                    frameCount++;
-                } else if (rolls[i] === '/') {
-                    // spare
+                    this.nextFrame();
+
+                } else if (rolls[i] === this.MARK.SPARE) {
                     score += roll + rollList[i + 1];
-                    frameCount++;
-                    isFirstThrow = true;
+                    this.nextFrame();
+
                 } else {
                     score += roll;
-                    if (!isFirstThrow) {
-                        frameCount++;
-                        isFirstThrow = true;
+
+                    if (this.isFirstRoll) {
+                        this.isFirstRoll = false;
+                    } else {
+                        this.nextFrame();
                     }
                 }
             } else {
@@ -35,6 +57,7 @@
 
         return score;
     }
+
 
     /**
      * rollsを数値配列に変換する（記号も変換する）
@@ -46,15 +69,15 @@
 
         for (var i = 0; i < rolls.length; i++) {
             var roll = rolls[i];
-            if (roll === 'X') {
-                // strike
+            if (roll === this.MARK.STRIKE) {
                 rollList.push(10);
-            } else if (roll === '/') {
-                // spare
+
+            } else if (roll === this.MARK.SPARE) {
                 rollList.push(10 - rollList[i - 1]);
-            } else if (roll === '-') {
-                // gutter
+
+            } else if (roll === this.MARK.GUTTER) {
                 rollList.push(0);
+
             } else {
                 rollList.push(+roll);
             }
