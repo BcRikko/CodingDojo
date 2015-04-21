@@ -29,4 +29,9 @@ describe('ボウリングのスコア計算',() => {
         var result = this.bowling.computeScore('XXX-------');
         expect(result).toBe(60);
     });
+
+    it('3回連続スペア',() => {
+        var result = this.bowling.computeScore('5/5/5/--------------');
+        expect(result).toBe(40);
+    });
 });
