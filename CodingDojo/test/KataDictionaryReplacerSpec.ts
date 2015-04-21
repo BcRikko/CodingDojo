@@ -26,4 +26,10 @@ describe('KataDectionaryReplacer',() => {
         var result = this.replacer.replace('$temp$ here comes the name $firstname$', dict);
         expect(result).toBe('temporary here comes the name $firstname$');
     });
+
+    it('置換対象がない場合',() => {
+        var dict = { 'temp': 'temporary', 'name': 'John Doe' };
+        var result = this.replacer.replace('There is no replacement target.', dict);
+        expect(result).toBe('There is no replacement target.');
+    });
 });
