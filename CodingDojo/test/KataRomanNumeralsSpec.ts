@@ -25,4 +25,14 @@ describe('KataRomanNumerals', () => {
         var result = this.romanNumerals.convert(1111);
         expect(result).toBe('MCXI');
     });
+
+    it('1990を渡すとMCMXCが返ってくる', () => {
+        var result = this.romanNumerals.convert(1990);
+        expect(result).toBe('MCMXC');
+    });
+
+    it('2008を渡すとMMVIIIが返ってくる', () => {
+        var result = this.romanNumerals.convert(2008);
+        expect(result).toBe('MMVIII');
+    });
 });
