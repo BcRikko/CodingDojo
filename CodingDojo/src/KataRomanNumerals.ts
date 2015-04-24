@@ -1,28 +1,29 @@
 export class KataRomanNumerals {
+    // 一の位
     private I = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
+    // 十の位
     private X = ['', 'X', 'XX', 'XXX', 'XL', 'X', 'LX', 'LXX', 'LXXX', 'XC'];
+    // 百の位
     private C = ['', 'C', 'CC', 'CCC', 'CD', 'C', 'DC', 'DCC', 'DCCC', 'CM'];
+    // 千の位
     private M = ['', 'M', 'MM', 'MMM'];
 
-    private DigitPlace = {
-        1: this.I,
-        10: this.X,
-        100: this.C,
-        1000: this.M
-    };
+    private DigitPlace = [this.I, this.X, this.C, this.M];
 
     /**
      * アラビア数字をローマ数字に変換する
+     * @param value アラビア数字
+     * @return ローマ数字
      */
     convert(value: number): string {
         var romanNum = '';
 
         if (0 < value && value < 4000) {
-            romanNum += this.M[this.getDigitValue(value, 1000)];
-            romanNum += this.C[this.getDigitValue(value, 100)];
-            romanNum += this.X[this.getDigitValue(value, 10)];
-            romanNum += this.I[this.getDigitValue(value, 1)];
+            this.DigitPlace.forEach((digitPlace, i) => {
+                romanNum = digitPlace[this.getDigitValue(value, Math.pow(10, i))] + romanNum;
+            });
         }
+
         return romanNum;
     }
 
