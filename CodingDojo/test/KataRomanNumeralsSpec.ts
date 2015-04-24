@@ -11,4 +11,8 @@ describe('KataRomanNumerals', () => {
         expect(result).toBe('I');
     });
 
+    it('11を渡すとXIが返ってくる', () => {
+        var result = this.romanNumerals.convert(11);
+        expect(result).toBe('XI');
+    });
 });
