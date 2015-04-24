@@ -20,4 +20,9 @@ describe('KataRomanNumerals', () => {
         var result = this.romanNumerals.convert(111);
         expect(result).toBe('CXI');
     });
+
+    it('1111を渡すとMCXIが返ってくる', () => {
+        var result = this.romanNumerals.convert(1111);
+        expect(result).toBe('MCXI');
+    });
 });
