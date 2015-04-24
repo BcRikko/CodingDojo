@@ -10,3 +10,4 @@ CodingDojo/src/*.map
 
 *.suo
 *.csproj.user
+tsconfig.json
