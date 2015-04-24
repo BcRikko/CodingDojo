@@ -14,6 +14,7 @@ export class KataRomanNumerals {
     convert(value: number): string {
         var romanNum = '';
 
+        romanNum += this.C[this.getDigitValue(value, 100)];
         romanNum += this.X[this.getDigitValue(value, 10)];
         romanNum += this.I[this.getDigitValue(value, 1)];
 
