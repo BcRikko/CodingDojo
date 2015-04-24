@@ -35,4 +35,14 @@ describe('KataRomanNumerals', () => {
         var result = this.romanNumerals.convert(2008);
         expect(result).toBe('MMVIII');
     });
+
+    it('0を渡すと空文字が返ってくる', () => {
+        var result = this.romanNumerals.convert(0);
+        expect(result).toBe('');
+    });
+
+    it('4000を渡すと空文字が返ってくる', () => {
+        var result = this.romanNumerals.convert(4000);
+        expect(result).toBe('');
+    });
 });
